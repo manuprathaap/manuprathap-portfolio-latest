@@ -1,0 +1,22 @@
+<div class="chat-screen" #scrollHost>
+  <div class="chat-container">
+    @for (m of chat.messages(); track m.id) {
+      @if (m.sender === 'user') {
+        <div class="message user">
+          <div class="bubble user-bubble">{{ m.text }}</div>
+        </div>
+      } @else {
+        <div class="message bot">
+          <div class="avatar">
+            <span>M.</span>
+          </div>
+          <div class="bubble bot-bubble">
+            @if (m.sectionKey) {
+              <app-section [sectionKey]="m.sectionKey"></app-section>
+            }
+          </div>
+        </div>
+      }
+    }
+  </div>
+</div>

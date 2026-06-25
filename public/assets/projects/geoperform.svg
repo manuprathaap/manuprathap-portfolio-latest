@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240">
+  <defs>
+    <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#g5)"/>
+  <rect x="40" y="40" width="320" height="160" rx="14" fill="rgba(255,255,255,0.95)"/>
+  <text x="200" y="105" font-family="JetBrains Mono, monospace" font-size="24" font-weight="700" fill="#1a1a1a" text-anchor="middle">⚓ GeoPerform</text>
+  <text x="200" y="130" font-family="Inter, sans-serif" font-size="11" fill="#666" text-anchor="middle">Vessel Performance Mgmt</text>
+  <g transform="translate(80, 145)">
+    <rect width="55" height="40" rx="5" fill="#dbeafe" stroke="#1e3a8a"/>
+    <text x="27" y="25" font-size="9" fill="#1e3a8a" text-anchor="middle" font-weight="700">ADMIN</text>
+    <rect x="65" width="55" height="40" rx="5" fill="#dbeafe" stroke="#1e3a8a"/>
+    <text x="92" y="25" font-size="9" fill="#1e3a8a" text-anchor="middle" font-weight="700">OPS</text>
+    <rect x="130" width="55" height="40" rx="5" fill="#dbeafe" stroke="#1e3a8a"/>
+    <text x="157" y="25" font-size="9" fill="#1e3a8a" text-anchor="middle" font-weight="700">VIEW</text>
+    <rect x="195" width="55" height="40" rx="5" fill="#94a3b8" stroke="#1e3a8a" stroke-dasharray="3 2"/>
+    <text x="222" y="25" font-size="9" fill="#1e3a8a" text-anchor="middle" font-weight="700">+RBAC</text>
+  </g>
+</svg>

@@ -1,0 +1,191 @@
+:host { display: block; }
+
+.chat-layout {
+  position: relative;
+  padding: 0.5rem 0 0.875rem;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--container-color);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 0.4rem 0.4rem 0.4rem 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.input-box:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--container-color);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.menu-btn:hover {
+  background: var(--text-color);
+  color: var(--container-color);
+  border-color: var(--text-color);
+}
+.menu-btn i { font-size: 1rem; }
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 36px;
+}
+
+input[type="text"] {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.92rem;
+  color: var(--text-color);
+  font-family: inherit;
+  padding: 0.5rem 0;
+}
+input::placeholder { color: transparent; }
+
+.fake-placeholder {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: none;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.prefix {
+  font-size: 0.85rem;
+  color: var(--sub-text);
+  white-space: nowrap;
+  font-family: 'JetBrains Mono', monospace;
+}
+.slider {
+  overflow: hidden;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.slide-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: slide 18s linear infinite;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+.slide-track span { display: inline-block; }
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.send {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: var(--message-user-text);
+  border-radius: 10px;
+  font-size: 1.1rem;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+.send:hover { transform: scale(1.05); box-shadow: var(--shadow-sm); }
+.send:active { transform: scale(0.95); }
+
+/* Menu popup */
+.menu-popup {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 0;
+  background: var(--container-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  min-width: 220px;
+  z-index: 20;
+  animation: fadeInUp 0.18s ease both;
+}
+.menu-popup ul { display: flex; flex-direction: column; }
+.menu-popup li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.menu-popup li:hover { background: var(--primary-color); }
+.menu-popup li span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--sub-text);
+  width: 24px;
+}
+
+/* Footer */
+.footer-copy-right {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.sma-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  flex-wrap: wrap;
+  color: var(--sub-text);
+}
+.sma-menu a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--text-color);
+  transition: color 0.15s ease;
+}
+.sma-menu a:hover { color: var(--accent); }
+.sma-menu .dot { opacity: 0.4; }
+.built-by {
+  margin-top: 0.4rem;
+  font-size: 0.7rem;
+  color: var(--sub-text);
+  font-family: 'JetBrains Mono', monospace;
+  opacity: 0.6;
+}
+
+@media (max-width: 480px) {
+  .menu-btn span { display: none; }
+  .menu-btn { padding: 0.5rem; }
+  .menu-btn i { margin: 0; }
+}

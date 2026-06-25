@@ -1,0 +1,200 @@
+<!-- hello -->
+@if (sectionKey === 'hello') {
+  <h2 class="sect-text">Hello 👋 I am <strong>{{ profile.name }}</strong>.</h2>
+  <p class="sect-text">{{ profile.title }} — 3+ years building scalable Angular applications.</p>
+  <p class="sect-text">Try asking me about <em>projects</em>, <em>experience</em>, <em>skills</em>, or <em>contact</em>.</p>
+}
+
+<!-- about -->
+@if (sectionKey === 'about') {
+  <h2 class="sect-text">About me</h2>
+  <p class="sect-text">{{ profile.tagline }}</p>
+  <ul class="about-list">
+    <li><i class="ti ti-briefcase"></i>{{ profile.status }}</li>
+    <li><i class="ti ti-mail-fast"></i><a [href]="'mailto:' + profile.email">{{ profile.email }}</a></li>
+    <li><i class="ti ti-language"></i>English, Malayalam, Hindi</li>
+    <li><i class="ti ti-map-pin"></i>{{ profile.location }}</li>
+  </ul>
+  <div class="about-actions">
+    <a class="btn-primary" href="assets/resume.pdf" download>
+      <i class="ti ti-download"></i> Download Resume
+    </a>
+  </div>
+}
+
+<!-- projects -->
+@if (sectionKey === 'projects') {
+  <h2 class="sect-text">Selected work — click <em>Show next</em> to step through.</h2>
+  <div class="project-list">
+    @for (p of currentProjects(); track trackByProject($index, p)) {
+      <article class="project-card">
+        <div class="project-thumb">
+          <img [src]="p.image" [alt]="p.name" loading="lazy" />
+        </div>
+        <div class="project-body">
+          <div class="project-header">
+            <h3 class="project-title">{{ p.name }}</h3>
+            <span class="project-tag">{{ p.tag }}</span>
+          </div>
+          <div class="project-block">
+            <span class="project-label">Problem</span>
+            <p class="sect-text">{{ p.problem }}</p>
+          </div>
+          <div class="project-block">
+            <span class="project-label">Build</span>
+            <p class="sect-text">{{ p.build }}</p>
+          </div>
+          <div class="project-block">
+            <span class="project-label">Result</span>
+            <p class="sect-text result">{{ p.result }}</p>
+          </div>
+          <div class="project-links">
+            @if (p.github) {
+              <a class="btn-ghost" [href]="p.github" target="_blank" rel="noopener">
+                <i class="ti ti-brand-github"></i> GitHub
+              </a>
+            }
+            @if (p.live) {
+              <a class="btn-ghost" [href]="p.live" target="_blank" rel="noopener">
+                <i class="ti ti-external-link"></i> Live
+              </a>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+  <button class="btn-primary show-more" (click)="showMoreProjects()">
+    <i class="ti ti-arrow-right"></i>
+    {{ visibleProjects() >= projects.length ? 'Restart' : 'Show next project' }}
+  </button>
+}
+
+<!-- experience -->
+@if (sectionKey === 'experience') {
+  <h2 class="sect-text">Work experience</h2>
+  @for (job of experience; track job.company) {
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <h3 class="exp-role">{{ job.role }}</h3>
+          <p class="exp-company">{{ job.company }} · {{ job.location }}</p>
+        </div>
+        <span class="exp-period">{{ job.period }}</span>
+      </div>
+      <ul class="exp-list">
+        @for (h of job.highlights; track h) {
+          <li><span class="bullet">›</span><span>{{ h }}</span></li>
+        }
+      </ul>
+    </div>
+  }
+}
+
+<!-- skills -->
+@if (sectionKey === 'skills') {
+  <h2 class="sect-text">Tech I work with</h2>
+  @for (group of groupedSkills(); track group.category) {
+    <div class="skill-group">
+      <h4 class="skill-cat">{{ group.category }}</h4>
+      <div class="skill-pills">
+        @for (s of group.items; track trackBySkill($index, s)) {
+          <span class="skill-pill">{{ s.name }}</span>
+        }
+      </div>
+    </div>
+  }
+  <h2 class="sect-text certifications-title">Certifications</h2>
+  @for (c of certs; track c.name) {
+    <div class="cert-card">
+      <h4 class="cert-name">{{ c.name }}</h4>
+      <p class="cert-issuer">{{ c.issuer }}</p>
+      <p class="sect-text">{{ c.description }}</p>
+    </div>
+  }
+}
+
+<!-- education -->
+@if (sectionKey === 'education') {
+  <h2 class="sect-text">Education</h2>
+  @for (e of education; track e.degree) {
+    <div class="edu-card">
+      <div class="edu-header">
+        <h3 class="edu-degree">{{ e.degree }}</h3>
+        <span class="exp-period">{{ e.period }}</span>
+      </div>
+      <p class="edu-inst">{{ e.institution }}</p>
+      <p class="sect-text">{{ e.description }}</p>
+    </div>
+  }
+}
+
+<!-- communication / languages -->
+@if (sectionKey === 'communication') {
+  <h2 class="sect-text">Languages I speak</h2>
+  <div class="lang-list">
+    @for (l of languages; track l.name) {
+      <div class="lang-row">
+        <div class="lang-header">
+          <span class="lang-name">{{ l.name }}</span>
+          <span class="lang-percent">[{{ l.level }}%]</span>
+        </div>
+        <div class="dots">
+          @for (filled of getDots(l.level); track $index) {
+            <span class="dot" [class.active]="filled"></span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+}
+
+<!-- contact -->
+@if (sectionKey === 'contact') {
+  <h2 class="sect-text">Let's build something.</h2>
+  <p class="sect-text">I'm <strong>open to new roles & freelance</strong>. Best channels:</p>
+  <div class="contact-rows">
+    <div class="contact-row">
+      <i class="ti ti-mail"></i>
+      <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+    </div>
+    <div class="contact-row">
+      <i class="ti ti-phone-call"></i>
+      <a [href]="'tel:' + profile.phone">{{ profile.phone }}</a>
+    </div>
+    <div class="contact-row">
+      <i class="ti ti-brand-linkedin"></i>
+      <a [href]="profile.linkedin" target="_blank" rel="noopener">linkedin.com/in/manuuprathaap</a>
+    </div>
+    <div class="contact-row">
+      <i class="ti ti-brand-github"></i>
+      <a [href]="profile.github" target="_blank" rel="noopener">github.com/manuprathap</a>
+    </div>
+  </div>
+  <ul class="contact-media">
+    <li>
+      <a [href]="profile.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="ti ti-brand-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a [href]="profile.github" target="_blank" rel="noopener" aria-label="GitHub">
+        <i class="ti ti-brand-github"></i>
+      </a>
+    </li>
+    <li>
+      <a [href]="profile.instagram" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="ti ti-brand-instagram"></i>
+      </a>
+    </li>
+  </ul>
+}
+
+<!-- resume -->
+@if (sectionKey === 'resume') {
+  <h2 class="sect-text">Want the full picture?</h2>
+  <p class="sect-text">Click below to download my resume in PDF format.</p>
+  <a class="btn-primary" href="assets/resume.pdf" download>
+    <i class="ti ti-download"></i> Download Resume
+  </a>
+}

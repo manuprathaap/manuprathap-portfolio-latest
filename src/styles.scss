@@ -1,0 +1,151 @@
+/* ============================================================
+   Manu Prathap — Portfolio
+   Global styles + theming
+   ============================================================ */
+
+/* ---------- CSS Reset (lean) ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html { scroll-behavior: smooth; }
+ul, ol { list-style: none; padding: 0; margin: 0; }
+a { text-decoration: none; color: inherit; }
+button { background: none; border: none; cursor: pointer; font: inherit; color: inherit; }
+img, svg { display: block; max-width: 100%; }
+
+/* ---------- Theme Variables (Light) ---------- */
+:root {
+  --primary-color: #f3f3f3;
+  --container-color: #ffffff;
+  --text-color: #1a1a1a;
+  --sub-text: #525252;
+  --border-color: #000000;
+  --accent: #0066ff;
+  --accent-glow: rgba(0, 102, 255, 0.15);
+  --linear-gradient: linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.12) 100%);
+  --icons-filter: brightness(0) saturate(100%) invert(0%) sepia(94%) saturate(7500%) hue-rotate(340deg) brightness(97%) contrast(106%);
+  --skill-dots: #e5e5e5;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.05);
+  --message-bot: #f4f4f4;
+  --message-user: #1a1a1a;
+  --message-user-text: #ffffff;
+  --bg-pattern: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
+}
+
+/* ---------- Theme Variables (Dark) ---------- */
+body.dark-mode {
+  --primary-color: #0a0a0a;
+  --container-color: #000000;
+  --text-color: #f5f5f5;
+  --sub-text: #a0a0a0;
+  --border-color: #303030;
+  --accent: #00d4ff;
+  --accent-glow: rgba(0, 212, 255, 0.18);
+  --linear-gradient: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.12) 100%);
+  --icons-filter: brightness(0) saturate(100%) invert(99%) sepia(15%) saturate(85%) hue-rotate(344deg) brightness(111%) contrast(100%);
+  --skill-dots: #595959;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.3);
+  --message-bot: #161616;
+  --message-user: #00d4ff;
+  --message-user-text: #001218;
+  --bg-pattern: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+}
+
+/* ---------- Base ---------- */
+html, body {
+  height: 100%;
+  font-family: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  background: var(--primary-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+body {
+  background-image: var(--bg-pattern);
+  background-size: 24px 24px;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.02em; }
+h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 1.875rem); }
+h3 { font-size: 1.25rem; }
+p { color: var(--sub-text); }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ---------- Utilities ---------- */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection { background: var(--accent); color: var(--message-user-text); }
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--text-color);
+  color: var(--container-color);
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn-ghost:hover {
+  background: var(--text-color);
+  color: var(--container-color);
+  border-color: var(--text-color);
+}
+
+/* ---------- Animation primitives ---------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.5); opacity: 0.5; }
+}
+@keyframes typing-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30%           { transform: translateY(-4px); opacity: 1; }
+}

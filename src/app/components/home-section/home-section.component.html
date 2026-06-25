@@ -1,0 +1,26 @@
+<section class="home-section">
+  <button
+    class="theme-toggle"
+    (click)="toggleTheme()"
+    [attr.aria-label]="isDark() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+  >
+    @if (isDark() === 'dark') {
+      <i class="ti ti-sun"></i>
+    } @else {
+      <i class="ti ti-moon"></i>
+    }
+  </button>
+
+  <div class="profile-img-main">
+    <img src="assets/images/profile.svg" alt="Manu Prathap — Frontend Developer" />
+    <div class="typing-text-main">
+      <p class="typing-text">
+        <span class="role">{{ displayText() }}</span><span class="caret">|</span>
+      </p>
+    </div>
+  </div>
+
+  <h1 class="profile-name">{{ profile.name }}</h1>
+  <p class="sub-text-hero">{{ profile.tagline }}</p>
+  <h2 class="help-text">What can I help you with?</h2>
+</section>

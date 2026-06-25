@@ -1,0 +1,72 @@
+<div class="chat-layout">
+  <div class="input-box">
+    <button class="menu-btn" (click)="toggleMenu($event)" aria-label="Open menu">
+      <i class="ti ti-category-2"></i>
+      <span>Menu</span>
+    </button>
+
+    <div class="input-wrapper">
+      <input
+        #input
+        type="text"
+        autocomplete="off"
+        placeholder=" "
+        (input)="onInput($event)"
+        (focus)="onFocus()"
+        (blur)="onBlur()"
+        (keydown.enter)="send()"
+        aria-label="Ask Manu a question"
+      />
+      @if (!value()) {
+        <div class="fake-placeholder" aria-hidden="true">
+          <span class="prefix">You can ask me:</span>
+          <div class="slider">
+            <div class="slide-track">
+              @for (s of suggestions; track s) {
+                <span>{{ s }}</span>
+              }
+              @for (s of suggestions; track 'dup-' + s) {
+                <span>{{ s }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <button class="send" (click)="send()" aria-label="Send message">
+      <i class="ti ti-send"></i>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <div class="menu-popup">
+      <ul>
+        <li class="first" (click)="navigateTo('hello')"><span>[01]</span> Home</li>
+        <li (click)="navigateTo('about')"><span>[02]</span> About</li>
+        <li (click)="navigateTo('skills')"><span>[03]</span> Skills</li>
+        <li (click)="navigateTo('projects')"><span>[04]</span> Projects</li>
+        <li (click)="navigateTo('experience')"><span>[05]</span> Experience</li>
+        <li (click)="navigateTo('education')"><span>[06]</span> Education</li>
+        <li class="last" (click)="navigateTo('contact')"><span>[07]</span> Contact</li>
+      </ul>
+    </div>
+  }
+
+  <div class="footer-copy-right">
+    <div class="sma-menu">
+      <a href="https://linkedin.com/in/manuuprathaap" target="_blank" rel="noopener">
+        <i class="ti ti-brand-linkedin"></i> LinkedIn
+      </a>
+      <span class="dot">·</span>
+      <a href="https://github.com/manuprathap" target="_blank" rel="noopener">
+        <i class="ti ti-brand-github"></i> GitHub
+      </a>
+      <span class="dot">·</span>
+      <a href="mailto:manuprathapkarimbil@gmail.com">
+        <i class="ti ti-mail"></i> Email
+      </a>
+    </div>
+    <p class="built-by">Built with Angular 19 · SSR · Signals</p>
+  </div>
+</div>
