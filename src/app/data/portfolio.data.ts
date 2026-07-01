@@ -23,7 +23,7 @@ export const PROFILE = {
   phone: '+91 7025405061',
   location: 'Kerala, India',
   linkedin: 'https://linkedin.com/in/manuuprathaap',
-  github: 'https://github.com/manuprathap',
+  github: 'https://github.com/manuprathaap',
   instagram: 'https://instagram.com/manuuprathaap',
   status: 'Immediate Joiner · Open to opportunities',
   languages: ['English', 'Malayalam', 'Hindi'],

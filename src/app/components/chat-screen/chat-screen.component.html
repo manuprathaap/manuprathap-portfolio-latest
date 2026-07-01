@@ -11,7 +11,9 @@
             <span>M.</span>
           </div>
           <div class="bubble bot-bubble">
-            @if (m.sectionKey) {
+            @if (m.text) {
+              <div class="bot-text">{{ m.text }}</div>
+            } @else if (m.sectionKey) {
               <app-section [sectionKey]="m.sectionKey"></app-section>
             }
           </div>

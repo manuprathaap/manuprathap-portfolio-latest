@@ -9,6 +9,7 @@ import {
   EDUCATION,
   LANGUAGES,
   CERTIFICATIONS,
+  SECTIONS,
 } from '../../data/portfolio.data';
 
 @Component({
@@ -52,6 +53,10 @@ export class SectionComponent {
     const total = 10;
     const active = Math.round((level / 100) * total);
     return Array.from({ length: total }, (_, i) => i < active);
+  }
+
+  getSectionTitle(key: SectionKey): string {
+    return SECTIONS.find((section) => section.key === key)?.title ?? 'Section';
   }
 
   groupedSkills(): { category: string; items: SkillItem[] }[] {

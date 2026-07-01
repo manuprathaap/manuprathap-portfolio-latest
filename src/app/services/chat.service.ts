@@ -37,7 +37,8 @@ export class ChatService {
         {
           id: this.uid(),
           sender: 'bot',
-          sectionKey: section,
+          text: section === 'about' && trimmed.toLowerCase() !== 'about' ? this.buildFallbackMessage() : undefined,
+          sectionKey: section === 'about' && trimmed.toLowerCase() !== 'about' ? undefined : section,
           timestamp: Date.now(),
         },
       ]);
@@ -57,6 +58,9 @@ export class ChatService {
 
   private matchSection(input: string): SectionKey {
     const q = input.toLowerCase().trim();
+
+    if (q === 'about') return 'about';
+
     // direct hit
     for (const s of SECTIONS) {
       if (s.key === q) return s.key;
@@ -67,6 +71,11 @@ export class ChatService {
     }
     // fallback
     return 'about';
+  }
+
+  private buildFallbackMessage(): string {
+    const names = SECTIONS.map((section) => section.title).join(', ');
+    return `I didn't recognize that request. Try one of these section names: ${names}`;
   }
 
   private uid(): string {
