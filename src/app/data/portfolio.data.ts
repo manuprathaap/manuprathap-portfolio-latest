@@ -12,7 +12,7 @@ export const PROFILE = {
   initials: 'M.',
   title: 'Frontend Developer',
   tagline:
-    'Frontend Developer 💻 with 3+ years building scalable Angular applications. Specialised in Angular 8–18+, TypeScript, RxJS, NgRx, and SSR. Available for new roles & freelance.',
+    'Frontend Developer with experience building scalable web products for past companies and client projects. Specialised in Angular, TypeScript, UI engineering, and production-ready frontend architecture.',
   typingRoles: [
     'Angular Developer',
     'TypeScript Engineer',
@@ -41,9 +41,9 @@ export const PROJECTS: ProjectItem[] = [
       'Sole-built the entire system — requirements, architecture, UI/UX, and release. Used Angular 18 with SSR + PWA, Firebase Firestore real-time listeners for live order streams, role-based dashboards, and Firebase Hosting for deployment.',
     result:
       'Production-deployed POS with zero-refresh order updates flowing to the kitchen. Cut order-to-kitchen latency to sub-second and replaced three separate paper-based workflows with one app.',
-    github: 'https://github.com/manuprathap',
+    github: '',
     live: '',
-    image: 'assets/projects/ihub24.svg',
+    image: '',
   },
   {
     id: 'tripxoxo',
@@ -55,9 +55,9 @@ export const PROJECTS: ProjectItem[] = [
       'Built a dynamic drag-and-drop form builder with custom reusable pipes and directives. Wired REST APIs through HttpClient interceptors for auth + centralised error handling, and ran the work in two-week Jira sprints with AI-assisted planning.',
     result:
       'Internal teams could ship new campaign forms in hours instead of days. Cut API error tickets by ~40% thanks to the centralised interceptor layer.',
-    github: 'https://github.com/manuprathap',
+    github: '',
     live: '',
-    image: 'assets/projects/tripxoxo.svg',
+    image: '',
   },
   {
     id: 'bookotrip',
@@ -69,9 +69,9 @@ export const PROJECTS: ProjectItem[] = [
       'Built admin and customer modules end-to-end with reactive state management, REST API integration, and a fully responsive UI. Co-ordinated with backend on schema and auth.',
     result:
       'Unified two legacy booking portals into one. Reduced time-to-book on mobile by ~30% based on UX testing.',
-    github: 'https://github.com/manuprathap',
+    github: '',
     live: '',
-    image: 'assets/projects/bookotrip.svg',
+    image: '',
   },
   {
     id: 'stamppassport',
@@ -83,9 +83,9 @@ export const PROJECTS: ProjectItem[] = [
       'Designed dynamic country-specific visa questionnaires with document upload workflows, plus an admin portal. Integrated Signzy APIs for real-time passport verification, and built client- and server-side validation throughout.',
     result:
       'Cut manual review effort by roughly 60% — applications now self-validate and verification status flows back into the UI in real time.',
-    github: 'https://github.com/manuprathap',
+    github: '',
     live: '',
-    image: 'assets/projects/stamppassport.svg',
+    image: '',
   },
   {
     id: 'geoperform',
@@ -97,9 +97,9 @@ export const PROJECTS: ProjectItem[] = [
       'Developed admin and RBAC modules for vessel performance monitoring, including user management and granular permission controls.',
     result:
       'Single dashboard for fleet managers and admins. Replaced a spreadsheet-based reporting process with a live, auditable view.',
-    github: 'https://github.com/manuprathap',
+    github: '',
     live: '',
-    image: 'assets/projects/geoperform.svg',
+    image: '',
   },
   {
     id: 'pos-webapp',
@@ -111,9 +111,9 @@ export const PROJECTS: ProjectItem[] = [
       'Built a responsive React interface with REST API integration for live product, sales, and inventory updates.',
     result:
       'Shipped as a deployable web app — works on any browser, gives small retailers live stock visibility they didn\'t have before.',
-    github: 'https://github.com/manuprathap',
+    github: '',
     live: '',
-    image: 'assets/projects/pos.svg',
+    image: '',
   },
 ];
 

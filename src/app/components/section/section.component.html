@@ -16,7 +16,7 @@
     <li><i class="ti ti-map-pin"></i>{{ profile.location }}</li>
   </ul>
   <div class="about-actions">
-    <a class="btn-primary" href="assets/resume.pdf" download>
+    <a class="btn-primary" href="assets/ManuPrathap_Resume_2026.pdf" download>
       <i class="ti ti-download"></i> Download Resume
     </a>
   </div>
@@ -24,13 +24,10 @@
 
 <!-- projects -->
 @if (sectionKey === 'projects') {
-  <h2 class="sect-text">Selected work — click <em>Show next</em> to step through.</h2>
+  <h2 class="sect-text">Past company work — click <em>Show next</em> to step through.</h2>
   <div class="project-list">
     @for (p of currentProjects(); track trackByProject($index, p)) {
       <article class="project-card">
-        <div class="project-thumb">
-          <img [src]="p.image" [alt]="p.name" loading="lazy" />
-        </div>
         <div class="project-body">
           <div class="project-header">
             <h3 class="project-title">{{ p.name }}</h3>
@@ -47,18 +44,6 @@
           <div class="project-block">
             <span class="project-label">Result</span>
             <p class="sect-text result">{{ p.result }}</p>
-          </div>
-          <div class="project-links">
-            @if (p.github) {
-              <a class="btn-ghost" [href]="p.github" target="_blank" rel="noopener">
-                <i class="ti ti-brand-github"></i> GitHub
-              </a>
-            }
-            @if (p.live) {
-              <a class="btn-ghost" [href]="p.live" target="_blank" rel="noopener">
-                <i class="ti ti-external-link"></i> Live
-              </a>
-            }
           </div>
         </div>
       </article>
@@ -194,7 +179,7 @@
 @if (sectionKey === 'resume') {
   <h2 class="sect-text">Want the full picture?</h2>
   <p class="sect-text">Click below to download my resume in PDF format.</p>
-  <a class="btn-primary" href="assets/resume.pdf" download>
+  <a class="btn-primary" href="assets/ManuPrathap_Resume_2026.pdf" download>
     <i class="ti ti-download"></i> Download Resume
   </a>
 }
